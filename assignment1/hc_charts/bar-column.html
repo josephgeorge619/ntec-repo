@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>os-gender</title>
+
+		<style type="text/css">
+
+		</style>
+	</head>
+	<body>
+<script src="../hc_code/highcharts.js"></script>
+<script src="../hc_code/modules/exporting.js"></script>
+
+<div id="container" class="col-md-12" style="min-height: 530px;">"</div>
+
+
+
+		<script type="text/javascript">
+
+Highcharts.chart('container', {
+    chart: {
+        type: 'column'
+    },
+    title: {
+        text: 'OS Choice Based on Gender'
+    },
+    subtitle: {
+        text: 'Source: <a href="https://insights.stackoverflow.com/survey/2015">StackOverFlow.com</a>'
+    },
+    xAxis: {
+        categories: [
+            'Debian',
+            'Fedora',
+            'Mac OS X',
+            'Mint',
+            'Other Linux',
+            'Ubuntu',
+            'Windows 7',
+            'Windows 8',
+            'Windows XP'
+        ],
+        crosshair: true
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: 'Person\'s'
+        }
+    },
+    tooltip: {
+        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+        pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+            '<td style="padding:0"><b>{point.y:.1f} persons</b></td></tr>',
+        footerFormat: '</table>',
+        shared: true,
+        useHTML: true
+    },
+    plotOptions: {
+        column: {
+            pointPadding: 0.2,
+            borderWidth: 0
+        }
+    },
+    series: [{
+        name: 'Male',
+        data: [5, 2, 47, 10, 13, 43, 142, 65, 3]
+
+    }, {
+        name: 'Female',
+        data: [0, 0, 1, 1, 0, 3, 8, 3, 0]
+
+    }]
+});
+		</script>
+	</body>
+</html>
