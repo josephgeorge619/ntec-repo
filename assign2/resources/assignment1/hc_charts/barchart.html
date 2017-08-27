@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>Highcharts Example</title>
+
+		<style type="text/css">
+
+		</style>
+	</head>
+	<body>
+<script src="../hc_code/highcharts.js"></script>
+<script src="../hc_code/modules/exporting.js"></script>
+
+<div id="container"  class="col-md-12" style="min-height: 530px; "></div>
+
+
+
+		<script type="text/javascript">
+
+Highcharts.chart('container', {
+    chart: {
+        type: 'bar'
+    },
+    title: {
+        text: 'Number of Developer\'s in each Country Below 50'
+    },
+    subtitle: {
+        text: 'Source: <a href="https://insights.stackoverflow.com/survey/2015">StackOverFlow.com</a>'
+    },
+    xAxis: {
+        categories: ['Brazil', 'Germany', 'India', 'New Zealand', 'Russia', 'UK', 'USA'],
+        title: {
+            text: null
+        }
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: ' Person\'s',
+            align: 'high'
+        },
+        labels: {
+            overflow: 'justify'
+        }
+    },
+    tooltip: {
+        valueSuffix: ' person'
+    },
+    plotOptions: {
+        bar: {
+            dataLabels: {
+                enabled: true
+            }
+        }
+    },
+    legend: {
+        layout: 'horizontal',
+        align: 'right',
+        verticalAlign: 'top',
+        x: -40,
+        y: 80,
+        floating: true,
+        borderWidth: 0,
+        backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+        shadow: true
+    },
+    credits: {
+        enabled: false
+    },
+    series: [{
+        name: 'Age 20-24',
+        data: [4, 0, 10, 0, 5, 4, 6]
+    }, {
+        name: 'Age 25-29',
+        data: [3, 9, 16, 1, 5, 7, 13]
+    }, {
+        name: 'Age 30-34',
+        data: [0, 5, 4, 0, 0, 7, 13]
+    }, {
+				name: 'Age 35-39',
+				data: [0, 3, 1, 1, 2, 2, 12]
+		}, {
+				name: 'Age 40-50',
+				data: [1, 2, 1, 0, 0, 3, 11]
+		}]
+});
+		</script>
+	</body>
+</html>

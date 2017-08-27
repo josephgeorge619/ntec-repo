@@ -8,8 +8,11 @@ if(isset($username, $password)) {
     ob_start();
     include 'config.php'; //Initiate the MySQL connection
     // To protect MySQL injection (more detail about MySQL injection)
-
     $myusername = stripslashes($username);
+    // echo "$dbName";
+    // ob_flush();
+    // flush();
+    // sleep(10);
     $mypassword = stripslashes($password);
     $myusername = mysqli_real_escape_string($dbC, $myusername);
     $mypassword = mysqli_real_escape_string($dbC, $mypassword);
@@ -23,10 +26,19 @@ if(isset($username, $password)) {
         // Register $myusername, $mypassword and redirect to file "admin.php"
 #        session_start()
 //        session_register("admin");
-//        session_register("password");
-        $_SESSION['name']=$myusername;
-        $_SESSION['password']=$mypassword;
-        header("location:admin.php");
+//        session_register("password")
+    //    $_SESSION['password']=$mypassword;
+        if($myusername=='admin')
+        {
+          session_start();
+          $_SESSION["login_user"]=$myusername;
+          header("location:admin.php");
+        }
+        else {
+          session_start();
+          $_SESSION['login_user']=$myusername;
+          header("location:../resources/assignment1/home.php");
+        }
     }
     else {
         $msg = "Wrong Username or Password. Please retry";

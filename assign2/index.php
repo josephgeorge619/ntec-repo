@@ -19,19 +19,14 @@
     <![endif]-->
   </head>
   <body>
-    
-    <?php include("includes/nav.html"); ?>
 
-</div>
-    <section>
-    <div class="container customtopmargin">
-      <div class="row">
-          <div class="col-md-12 row_bottom_buffer"><div class="customdiv" id="map"></div>
-          </div>
+    <?php include("includes/nav.php"); ?>
+
+    <div class="row">
+      <div class="col-md-12">
+        <img src="img/welcome.jpg" alt="Welcome image" style="width:100%;height:100%;padding: 2.5% 6%;">
       </div>
-
     </div>
-</section>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

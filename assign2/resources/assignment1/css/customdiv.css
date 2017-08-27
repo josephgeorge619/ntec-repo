@@ -1,0 +1,37 @@
+.customdiv {
+  margin:2px;
+  min-height: 550px;
+  text-align: center;
+  font-size
+}
+
+.row_top_buffer {
+  margin-top: 20px;
+}
+
+.row_bottom_buffer {
+  margin-bottom: 30px;
+}
+
+.footerline {
+  min-height: 1px;
+  background-color: silver;
+  margin-bottom: 20px;
+}
+.footerdesgin {
+  min-height: 20px;
+  background-color: #F8F8F8;
+  text-align: right;
+}
+.customtopmargin {
+  margin-top: 60px;
+}
+
+ul.navbar-nav a:hover {
+  background-color: black !important;
+  color: white !important;
+}
+
+#map {
+       width: 100%;
+     }

@@ -1,7 +1,8 @@
 <?php
 session_start(); //Start the session
-if(!isset($_SESSION['login_user']))){ //If session not registered
-header("location:login.php"); // Redirect to login.php page
+if(!isset($_SESSION['login_user'])){ //If session not registered
+  echo "my login user is $login_user";
+//header("location:login.php"); // Redirect to login.php page
 }
 // else //Continue to current page
 // header( 'Content-Type: text/html; charset=utf-8' );
@@ -12,7 +13,7 @@ header("location:login.php"); // Redirect to login.php page
     <title>Welcome To Admin Page Demonstration</title>
 </head>
 <body>
-    <h1>Welcome To Admin Page <?php echo login_user /*Echo the username */ ?></h1>
+    <h1>Welcome To Admin Page <?php echo $_SESSION['login_user'] /*Echo the username */ ?></h1>
     <p><a href="logout.php">Logout</a></p> <!-- A link for the logout page -->
     <p>Put Admin Contents</p>
 </body>

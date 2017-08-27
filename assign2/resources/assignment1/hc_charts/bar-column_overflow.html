@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>stackoverflow-exp</title>
+
+		<style type="text/css">
+
+		</style>
+	</head>
+	<body>
+<script src="../hc_code/highcharts.js"></script>
+<script src="../hc_code/modules/exporting.js"></script>
+
+<div id="container" class="col-md-12" style="min-height: 530px;">"</div>
+
+
+
+		<script type="text/javascript">
+
+Highcharts.chart('container', {
+    chart: {
+        type: 'column'
+    },
+    title: {
+        text: 'StackOverFlow Answer\'s Rating Based on Experianced Professional\'s'
+    },
+    subtitle: {
+        text: 'Source: <a href="https://insights.stackoverflow.com/survey/2015">StackOverFlow.com</a>'
+    },
+    xAxis: {
+        categories: [
+            'Less than 1 Year',
+            '1 - 2 Years',
+            '2 - 5 years',
+            '6 - 10 years',
+            '11+ years'
+        ],
+        crosshair: true
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: 'Person\'s'
+        }
+    },
+    tooltip: {
+        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+        pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+            '<td style="padding:0"><b>{point.y:.1f} persons</b></td></tr>',
+        footerFormat: '</table>',
+        shared: true,
+        useHTML: true
+    },
+    plotOptions: {
+        column: {
+            pointPadding: 0.2,
+            borderWidth: 0
+        }
+    },
+    series: [{
+        name: 'Always',
+        data: [3, 5, 9, 13, 5]
+
+    }, {
+        name: 'Rarely',
+        data: [0, 1, 0, 0, 1]
+
+    }, {
+			name: 'Sometimes',
+			data: [0, 1, 11, 9, 9]
+		}, {
+			name: 'Usually',
+			data: [3, 12, 75, 72, 60]
+		}]
+});
+		</script>
+	</body>
+</html>
