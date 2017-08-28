@@ -16,11 +16,11 @@
                  <form action="includes/check_login.php" method="post" id="login">
                  <fieldset class="form-group">
                    <label for="Email1"> User Name </label>
-                   <input type="text" class="form-control" id="email_val" name="username" placeholder="Enter User Name">
+                   <input type="text" class="form-control" id="email_val" name="username" placeholder="Enter User Name" required>
                  </fieldset>
                  <fieldset class="form-group">
                    <label for="Password1"> Password </label>
-                   <input type="password" class="form-control" id="pass_val" name="password" placeholder="Password">
+                   <input type="password" class="form-control" id="pass_val" name="password" placeholder="Password" required>
                  </fieldset>
            <!--     <div class="checkbox">
                    <label>
@@ -28,6 +28,7 @@
                    </label>
                  </div> -->
                  <button type="submit" class="btn btn-primary" style="margin-left:40%;">Log In</button>
+               </form>
                </div>
              </div>
            </div>

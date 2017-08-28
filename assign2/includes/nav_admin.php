@@ -11,7 +11,7 @@
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li ><a href="#">Home<span class="sr-only">(current)</span></a></li>
+        <li ><a href="../index.php">Home<span class="sr-only">(current)</span></a></li>
         <li><a href="#">Products</a></li>
         <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Contact Us<span class="caret"></span></a>
@@ -25,15 +25,6 @@
             <li><a href="#">Suggestions</a></li>
           </ul>
         </li>
-        <?php
-          session_start();
-          if(isset($_SESSION['login_user']))
-          {
-            if($_SESSION['login_user'] == 'admin')
-            {
-              echo '<li><a href="includes/admin.php">Admin</a></li>';
-            }
-          } ?>
       </ul>
       <div class="" style="float:right; line-height:4; ">
         <?php
@@ -42,19 +33,15 @@
           echo "<b>logged in as ";
           echo $_SESSION['login_user'];
           echo "  </b>";
-          echo '<a class="btn btn-info btn-lg" href="includes/logout.php">Log Out</a>';
+          echo '<a class="btn btn-info btn-lg" href="logout.php">Log Out</a>';
         }
-        else {
-          echo '<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#login">Log In</button>';
-          echo '<button type="button" class="btn btn-info btn-lg" style="margin-left:5px;" data-toggle="modal" data-target="#register">Register</button>';
-        } ?>
+        ?>
       </div>
     </div><!-- /.navbar-collapse -->
   </div>
 </nav>
 
 
-<?php
-include("includes/login.php");
-include("includes/register.php");
+<?php include("login.php");
+include("Register.php");
 ?>

@@ -1,5 +1,9 @@
 <?php
 session_start();
+if(!isset($_SESSION['login_user'])){ //If session not registered
+  echo "my login user is $login_user";
+  header("location:../../index.php");
+}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -56,9 +60,9 @@ session_start();
             <?php
             if(isset($_SESSION['login_user']))
             {
-              echo "logged in as ";
+              echo "<b>logged in as ";
               echo $_SESSION['login_user'];
-              echo "  ";
+              echo "  </b>";
               echo '<a href="../../includes/logout.php" class="btn btn-info btn-lg" role="button">Log Out</a>';
             } ?>
           </div>

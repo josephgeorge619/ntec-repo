@@ -1,6 +1,6 @@
 <!-- Sign Up section -->
 
-<div class="modal fade" id="signup" role="dialog">
+<div class="modal fade" id="register" role="dialog">
   <div class="modal-dialog">
 
 
@@ -13,30 +13,70 @@
       <div class="row">
         <div class="col-md-10 col-md-offset-1 controldivreg">
           <div class="regform">
-           <form action="result.php" method="post" id="fsignup">
+           <form action="includes/result.php" method="post" id="register">
              <fieldset class="form-group">
-               <label for="Name"> Name </label>
-               <input type="text" class="form-control" id="name_val" name="name1" placeholder="Enter your Full Name">
+             <fieldset class="form-inline">
+              <label for="Name"> Name </label></br>
+               <input type="text" class="form-control" style="width:32%;" id="name_val" name="name_first" placeholder="First Name" required>
+               <input type="text" class="form-control" style="width:32%;" id="name_val" name="name_mid" placeholder="Middle Name" >
+               <input type="text" class="form-control" style="width:34%;" id="name_val" name="name_last" placeholder="Last Name" required>
+             </fieldset>
              </fieldset>
              <fieldset class="form-group">
                <label for="Email1"> Email address </label>
-               <input type="email" class="form-control" id="email_val" name="email1" placeholder="Enter email">
+               <input type="email" class="form-control" id="email_val" name="email1" placeholder="Enter email" required>
                <small class="text-muted">We'll never share your email with anyone else.</small>
              </fieldset>
              <fieldset class="form-group">
-               <label for="dataofbirth"> Date Of Birth </label>
-               <input type="date" name="date" class="form-control" placeholder=" Enter Your DOB ">
+               <label for="Password1"> Password </label>
+               <input type="password" class="form-control" id="pass_val" name="pass1" placeholder="Password" required>
              </fieldset>
              <fieldset class="form-group">
-               <label for="Password1"> Password </label>
-               <input type="password" class="form-control" id="pass_val" name="pass1" placeholder="Password">
+               <label for="Phone"> Phone </label>
+               <input type="tel" name="phone" class="form-control" placeholder=" Phone Number " required>
              </fieldset>
+             <fieldset class="form-group">
+               <label for="Address"> Address </label>
+               <input type="text" name="address" class="form-control" placeholder=" Address ">
+               <fieldset class="form-inline">
+                 <input type="text" class="form-control" style="width:49%;margin-top:7px;" id="city" name="city" placeholder=" City " required>
+                 <input type="text" class="form-control" style="width:50%;margin-top:7px;" id="pobox" name="pobox" placeholder=" Post Box " required>
+                 <input type="text" class="form-control" style="width:100%;margin-top:7px;" id="country" name="country" placeholder=" Country " required>
+              </fieldset>
+             </fieldset>
+             <fieldset class="form-group">
+               <label for="age"> Age </label>
+               <input type="number" name="age" class="form-control" placeholder=" Age " >
+             </fieldset>
+             <fieldset class="form-group">
+               <label for="gender"> Gender </label>
+               <div class="form-check form-check-inline">
+                <label class="form-check-label">
+                 <input class="form-check-input" type="radio" name="gender" value="Male">
+                 Male
+               </label>
+              </div>
+              <div class="form-check form-check-inline">
+               <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="gender" value="Female">
+                Female
+              </label>
+             </div>
+             </fieldset>
+             <fieldset class="form-group">
+               <label for="photo"> Photo </label></br>
+               <label class="custom-file">
+                <input type="file" id="file" class="custom-file-input">
+                <span class="custom-file-control"></span>
+              </label>
+            </fieldset>
        <!--     <div class="checkbox">
                <label>
                  <input type="checkbox"> Check me out
                </label>
              </div> -->
-             <button type="submit" class="btn btn-primary" style="margin-left:40%;">Sign Up</button>
+             <button type="submit" class="btn btn-primary" style="margin-left:40%;">Register</button>
+           </form>
            </div>
          </div>
        </div>
@@ -50,7 +90,7 @@
 </div>
 <script>
   function fnreset() {
-      document.getElementById("signup").reset();
+      document.getElementById("register").reset();
   }
   window.onload = fnreset;
 </script>
