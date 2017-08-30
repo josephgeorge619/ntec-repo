@@ -16,7 +16,7 @@ if(isset($username, $password)) {
     $mypassword = stripslashes($password);
     $myusername = mysqli_real_escape_string($dbC, $myusername);
     $mypassword = mysqli_real_escape_string($dbC, $mypassword);
-    $sql="SELECT * FROM usr_tab WHERE user_name='$myusername' and user_pass=SHA('$mypassword')";
+    $sql="SELECT * FROM usr_tab WHERE email='$myusername' and user_pass=md5('$mypassword')";
     $result=mysqli_query($dbC, $sql);
     // Mysql_num_row is counting table row
     $count=mysqli_num_rows($result);
@@ -28,7 +28,7 @@ if(isset($username, $password)) {
 //        session_register("admin");
 //        session_register("password")
     //    $_SESSION['password']=$mypassword;
-        if($myusername=='admin')
+        if($myusername=='admin@localhost.com')
         {
           session_start();
           $_SESSION["login_user"]=$myusername;
@@ -42,7 +42,7 @@ if(isset($username, $password)) {
     }
     else {
         $msg = "Wrong Username or Password. Please retry";
-        header("location:login.php?msg=$msg");
+        header("location:login_reg.php?msg=$msg");
     }
     ob_end_flush();
 }

@@ -15,8 +15,8 @@
               <div class="loginform">
                  <form action="includes/check_login.php" method="post" id="login">
                  <fieldset class="form-group">
-                   <label for="Email1"> User Name </label>
-                   <input type="text" class="form-control" id="email_val" name="username" placeholder="Enter User Name" required>
+                   <label for="Email1"> Email </label>
+                   <input type="email"" class="form-control" id="email_val" name="username" placeholder="Enter Email ID" required>
                  </fieldset>
                  <fieldset class="form-group">
                    <label for="Password1"> Password </label>

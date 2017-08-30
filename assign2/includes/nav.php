@@ -29,7 +29,7 @@
           session_start();
           if(isset($_SESSION['login_user']))
           {
-            if($_SESSION['login_user'] == 'admin')
+            if($_SESSION['login_user'] == 'admin@localhost.com')
             {
               echo '<li><a href="includes/admin.php">Admin</a></li>';
             }
