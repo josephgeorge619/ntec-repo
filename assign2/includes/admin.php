@@ -25,70 +25,56 @@ header("location:../index.php"); // Redirect to login.php page
 
     <div class="col-md-10 col-lg-offset-1" >
         <div class="table-responsive" style="width:100%;height:100%;">
-        <?php ob_start();
-        include 'config.php';
-        $sql="SELECT * FROM usr_tab";
-        $result=mysqli_query($dbC, $sql);
-        $count=mysqli_num_rows($result);
-        $pg_no_rw=$count/2;
-        $pg_no=ceil($pg_no_rw);
-        $x=1;
-        echo "<div class=\"col-md-5\">";
-        while($x <= $pg_no) {
-        echo "<ul class=\"pagination pagination\">
-          <li><a href=\"#" . $x . "\" target=\"_blank\">" . $x . "</a></li>
-          </ul>";
-          $x++;
-        }
-        echo "</div>";
-        echo "<table class=\"table table-hover table-bordered\">
-          <thead>
-          <tr class=\"row\">
-          <th>Name</th>
-          <th>Phone</th>
-          <th>Email</th>
-          <th>Age</th>
-          </tr>
-          </thead>";
-        function pg_query($limit,$offset){
-          include 'config.php';
-          $sql="SELECT * FROM usr_tab ORDER BY age LIMIT $limit OFFSET $offset";
-          $result=mysqli_query($dbC, $sql);
-          return $result;
-        }
-        $x=0;
-        $step=2;
-        $off=0;
-        while ($x < $pg_no) {
-          $pg_rs=pg_query($step,$off);
-          $off=$off+$step;
-          $x++;
-          echo "<tbody id=\"$x\">";
-          while($row = mysqli_fetch_array($pg_rs)) {
-            echo "<tr class=\"row\">";
-            echo "<td>";
-            echo $row['name'];
-            echo "</td>";
-            echo "<td>" . $row['phone'] . "</td>";
-            echo "<td>" . $row['email'] . "</td>";
-            echo "<td>" . $row['age'] . "</td>";
-            echo "</tr>";
-          }
-          echo "</tbody>";
-        }
+          <?php
+          $num_rec_per_page=10;
+          include("config.php");
+          mysqli_connect($dbHost, $dbUser, $dbPass, $dbName)
+                  or die('Error Connecting to MySQL DataBase');
+          ;
+          if (isset($_GET["page"])) { $page  = $_GET["page"]; } else { $page=1; };
+          $start_from = ($page-1) * $num_rec_per_page;
+          $sql = "SELECT * FROM usr_tab LIMIT $start_from, $num_rec_per_page";
+          $rs_result = mysqli_query ($dbC,$sql); //run the query
+          ?>
+          <div class="col-md-10 col-md-offset-1">
+          <table class="table table-hover table-bordered" style="width:100%;">
+            <thead>
+              <tr class=\"row\" style=\"text-align:center;\">
+                  <td>Name</td>
+                  <td>Email</td>
+                  <td>Phone</td>
+                  <td>Age</td>
+                </tr>
+            </thead>";
+          <?php
+          while ($row = mysqli_fetch_assoc($rs_result)) {
+          ?>
 
-        // while($row = mysqli_fetch_array($result)) {
-        //     echo "<tr class=\"row\">";
-        //     echo "<td>";
-        //     echo $row['name'];
-        //     echo "</td>";
-        //     echo "<td>" . $row['phone'] . "</td>";
-        //     echo "<td>" . $row['email'] . "</td>";
-        //     echo "<td>" . $row['age'] . "</td>";
-        //     echo "</tr>";
-        //   }
+                          <tr>
+                          <td><?php echo $row['name']; ?></td>
+                          <td><?php echo $row['email']; ?></td>
+                          <td><?php echo $row['phone']; ?></td>
+                          <td><?php echo $row['age']; ?></td>
+                          </tr>
 
-          echo "</table>";
+
+          <?php
+          };
+          ?>
+          </table>
+          <?php
+          $sql = "SELECT * FROM usr_tab";
+          $rs_result = mysqli_query($dbC,$sql); //run the query
+          $total_records = mysqli_num_rows($rs_result);  //count number of records
+          $total_pages = ceil($total_records / $num_rec_per_page);
+          echo "<ul class=\"pagination pagination\" style=\"float:right;\">";
+          echo "<li><a href='admin.php?page=1'>".'|<'."</a></li>"; // Goto 1st page
+
+          for ($i=1; $i<=$total_pages; $i++) {
+                      echo "<li><a href='admin.php?page=".$i."'>".$i."</a> </li>";
+          };
+          echo "<li><a href='admin.php?page=$total_pages'>".'>|'."</a> </li>"; // Goto last page
+          echo "</ul>";
           mysqli_close($dbC);
          ?>
       </div>

@@ -70,6 +70,20 @@
                 <span class="custom-file-control"></span>
               </label>
             </fieldset>
+            <fieldset class="form-group">
+              <label for="acdc"> Academic Qualification </label>
+              <input type="text" name="acdc" class="form-control" placeholder=" Recent Academic Qualification " required>
+            </fieldset>
+            <fieldset class="form-group">
+            <fieldset class="form-inline">
+             <label for="Name"> Area of Expertise </label></br>
+              <input type="text" class="form-control" style="width:32%;" id="expert_1" name="expert_1" placeholder="skill 1" required>
+              <input type="text" class="form-control" style="width:32%;" id="expert_2" name="expert_2" placeholder="skill 2" required>
+              <input type="text" class="form-control" style="width:34%;" id="expert_3" name="expert_3" placeholder="skill 3" required>
+              <input type="text" class="form-control" style="width:34%;" id="expert_4" name="expert_4" placeholder="skill 4" required>
+              <input type="text" class="form-control" style="width:34%;" id="expert_5" name="expert_5" placeholder="skill 5" required>
+            </fieldset>
+            </fieldset>
        <!--     <div class="checkbox">
                <label>
                  <input type="checkbox"> Check me out
